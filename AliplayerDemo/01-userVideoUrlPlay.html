@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+  <title>Aliplayer Online Settings</title>
+  <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.9.1/skins/default/aliplayer-min.css" />
+  <script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.9.1/aliplayer-min.js"></script>
+</head>
+<body>
+<div class="prism-player" id="player-con"></div>
+<script>
+  var player = new Aliplayer({
+      "id": "player-con",
+      "width": "100%",
+      "height": "500px",
+      "autoplay": false,
+      "isLive": false,
+      "cover": "http://liveroom-img.oss-cn-qingdao.aliyuncs.com/logo.png",
+      "rePlay": false,
+      "playsinline": true,
+      "preload": false,
+      "language": "zh-cn",
+      "controlBarVisibility": "hover",
+      "useH5Prism": true,
+      //播放方式二：支持播放地址播放,此播放优先级最高，但是不能播放hls私有加密的视频
+    /*"source": "https://outin-b3b090a8218211eb85b400163e1a65b6.oss-cn-shanghai.aliyuncs.com/sv/413f237d-175b0bb1f10/413f237d-175b0bb1f10.mp4?Expires=1605254077&OSSAccessKeyId=LTAIrkwb21KyGjJl&Signature=TEwJjtcU3bI7Uen2wTfGWdsFYJg%3D",*/
+    //播放方式二：推荐视频点播用户使用，不仅能播放不加密的视频，还能播放hls私有加密的视频，所以推荐使用该方式
+    vid : '87edcba4ce004b72beb1c6d75aae1d77', // 视频id
+    // playAuth：视频播放的唯一凭证，每个播放凭证都绑定了用户的身份标识，不同用户的播放凭证不能互换，否则无法正常播放视频。另外，播放凭证是有时效性的（默认100秒），这可以保证安全性
+    playauth : 'eyJTZWN1cml0eVRva2VuIjoiQ0FJU2h3TjFxNkZ0NUIyeWZTaklyNURFS3VDRmpLMXY0dkNKYUgvbnQyNGRST0p2dlltVHBUejJJSDlJZEhWb0FPOGZ2dlUwbTJ0WTdQc1psck1xRTg0Y0dSU2ZQWlVwdE1rTXJsejVKcExGc3QySjZyOEpqc1ZlOFlWMnYxaXBzdlhKYXNEVkVmbDJFNVhFTWlJUi8wMGU2TC8rY2lyWXBUWEhWYlNDbFo5Z2FQa09Rd0M4ZGtBb0xkeEtKd3hrMnQxNFVtWFdPYVNDUHdMU2htUEJMVXhtdldnR2wyUnp1NHV5M3ZPZDVoZlpwMXI4eE80YXhlTDBQb1AyVjgxbExacGxlc3FwM0k0U2M3YmFnaFpVNGdscjhxbHg3c3BCNVN5Vmt0eVdHVWhKL3phTElvaXQ3TnBqZmlCMGVvUUFQb3BGcC9YNmp2QWF3UExVbTliWXhncGhCOFIrWGo3RFpZYXV4N0d6ZW9XVE84MCthS3p3TmxuVXo5bUxMZU9WaVE0L1ptOEJQdzQ0RUxoSWFGMElVRTF5R21DQ2QvWDRvZ3VSUDF6N0VwTG9pdjltamNCSHFIeno1c2VQS2xTMVJMR1U3RDBWSUpkVWJUbHphRUpHZ1RTNExmWldJbGNUS0FNOVd1MlBNYXgzYlFGRHI1M3ZzVGJiWHpaYjBtcHR1UG56ZDE0Sk9CS2cxMUtVR29BQlJGNDJmRnozM0FGYm14MXdhQU1LSC85UUF4bDY3OWdFT3VzRDdIemtHN0pIVnJZNHJFaHdxSXNhVUdLMHRVZ3Fpd1Yway93V05hQXZpZU53ZmNYTjE3SlJsNFVPS3FOUmg1OVNUUGYxU0tiT2JFYnRNZHJHb0l6S2lYMGtRTFBEbkhzKzhBTWxSQUd0THhPUHFxUFRTdGUvTFd1OUhaWjc4aFFBaWhSdGxBMD0iLCJBdXRoSW5mbyI6IntcIkNJXCI6XCJERXU5STZidUVUZkFXenhpbm5FTVgvaGVKQStJR2hqWitsZDZENGgrMXRBaGFvWllMemlMZTVSZExPRkxTTkdsMVdrN3JLWTNJQTRiTXdyZDdZTGNZMUtwL1QwYzNKS2M1eGIzT0N2K1RYRT1cIixcIkNhbGxlclwiOlwibmtwRkU1WXIrWHVVRStONklGaFRGMHNFRE8yRlJmaTVtNTZGUnlOMUNycz1cIixcIkV4cGlyZVRpbWVcIjpcIjIwMjAtMTEtMTNUMTE6NDg6MDFaXCIsXCJNZWRpYUlkXCI6XCI4N2VkY2JhNGNlMDA0YjcyYmViMWM2ZDc1YWFlMWQ3N1wiLFwiU2lnbmF0dXJlXCI6XCI1eFBNM3MzaDlCeHBERW8vSHRYWWJ1ZkZEd1k9XCJ9IiwiVmlkZW9NZXRhIjp7IlN0YXR1cyI6Ik5vcm1hbCIsIlZpZGVvSWQiOiI4N2VkY2JhNGNlMDA0YjcyYmViMWM2ZDc1YWFlMWQ3NyIsIlRpdGxlIjoiNiAtIFdoYXQgSWYgSSBXYW50LnRvIE1vdmUgRmFzdGVyIiwiQ292ZXJVUkwiOiJodHRwOi8vb3V0aW4tYjNiMDkwYTgyMTgyMTFlYjg1YjQwMDE2M2UxYTY1YjYub3NzLWNuLXNoYW5naGFpLmFsaXl1bmNzLmNvbS84N2VkY2JhNGNlMDA0YjcyYmViMWM2ZDc1YWFlMWQ3Ny9zbmFwc2hvdHMvMWU4NjA1Y2FlOGRiNDEwZjg0MzllM2VkNzU3YTIxNTEtMDAwMDEuanBnP0V4cGlyZXM9MTYwNTI3MTU4MSZPU1NBY2Nlc3NLZXlJZD1MVEFJcmt3YjIxS3lHakpsJlNpZ25hdHVyZT1FaktMNmlDZGJzRDk2YmpDZk5VdlZPMUdoVHclM0QiLCJEdXJhdGlvbiI6MTYuMjc2N30sIkFjY2Vzc0tleUlkIjoiU1RTLk5TcWFaMWFyTlUyYmpZVlNuSEhtQ1JMOEciLCJBY2Nlc3NLZXlTZWNyZXQiOiJGUzVnN2hrNkdvNjNjQ3RYcnFKeDRDemlHZk1WQ3VrV0thSlFOQmVCbXVTNyIsIlJlZ2lvbiI6ImNuLXNoYW5naGFpIiwiQ3VzdG9tZXJJZCI6MTA5MTQwMzg2MTI1Mzc3MH0=', // 视频播放凭证
+    encryptType:1, //当播放私有加密流时需要设置。
+    }, function (player) {
+      console.log("The player is created");
+    }
+  );
+</script>
+</body>
